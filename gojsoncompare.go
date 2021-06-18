@@ -83,6 +83,10 @@ func isSamesies(a, b interface{}, asort ArrayLessSort, pkey string) bool {
 			va, aok := ma[k]
 			vb, bok := mb[k]
 
+			if !aok || !bok {
+				return false
+			}
+
 			if aok && bok {
 				same := isSamesies(va, vb, asort, k)
 				if !same {
